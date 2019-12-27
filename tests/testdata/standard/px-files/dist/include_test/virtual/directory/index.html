@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IncTest 2 | px2-include-php-code</title>
+ 	</head>
+	<body>
+
+
+<!-- echo を実行するテスト -->
+<p><?php echo "echo in theme"; ?></p>
+
+
+<!-- include するテスト -->
+<?php include($_SERVER['DOCUMENT_ROOT'].'/common/includes/test.inc'); ?>
+
+
+<div class="contents">
+<!-- echo を実行するテスト -->
+<p><?php echo "echo in contents"; ?></p>
+
+<!-- 複数のPHPブロックに分けて実装するテスト -->
+<?php if( 1 ){ ?>
+<p><?php echo htmlspecialchars('複数のPHPブロックに分けて実装するテスト'); ?></p>
+<?php } ?>
+</div>
+	</body>
+</html>

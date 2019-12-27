@@ -1,0 +1,37 @@
+{
+    "name": "tomk79/px2-search-bots-headers",
+    "description": "Pickles 2 に、検索ボット向けのメタ情報を制御する機能を追加します。",
+    "keywords": ["pickles2"],
+    "license": "MIT",
+    "scripts":{
+        "test": [
+            "php ./vendor/phpunit/phpunit/phpunit"
+        ]
+    } ,
+    "authors": [
+        {
+            "name": "Tomoya Koyanagi",
+            "email": "tomk79@gmail.com"
+        }
+    ],
+    "repositories": [
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "pickles2/px-fw-2.x": "dev-develop",
+        "pickles2/px2-multitheme": "dev-develop",
+        "pickles2/px2-path-resolver": "dev-develop",
+        "pickles2/px2-px2dthelper": "dev-develop",
+        "pickles2/px2-remove-attr": "dev-develop",
+        "pickles2/px2-sitemapexcel": "dev-develop",
+        "phpunit/phpunit": "^4.1.0",
+        "phpdocumentor/phpdocumentor": "^2.7.0"
+    },
+    "autoload": {
+        "files": [
+            "php/main.php"
+        ]
+    }
+}

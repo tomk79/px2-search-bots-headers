@@ -1,0 +1,4 @@
+"* path","* content","* id","* title","* title_breadcrumb","* title_h1","* title_label","* title_full","* logical_path","* list_flg","* layout","* orderby","* keywords","* description","* category_top_flg","* role","* **delete_flg"
+"/index.html",,,"HOME",,,,,,1,,,,,,,
+"/include_test/index.html",,,"IncTest",,,,,,1,,,,,,,
+"/include_test/virtual/directory/index.html","/index.html",,"IncTest 2",,,,,,1,,,,,,,

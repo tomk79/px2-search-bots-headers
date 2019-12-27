@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IncTest | px2-include-php-code</title>
+ 	</head>
+	<body>
+
+
+<!-- echo を実行するテスト -->
+<p><?php echo "echo in theme"; ?></p>
+
+
+<!-- include するテスト -->
+<?php include($_SERVER['DOCUMENT_ROOT'].'/common/includes/test.inc'); ?>
+
+
+<div class="contents">
+<div class="cont_include_1"><?php include($_SERVER['DOCUMENT_ROOT'].'/common/includes/test.inc'); ?></div>
+<div class="cont_include_2"><?php include('../common/includes/test.inc'); ?></div>
+</div>
+	</body>
+</html>
