@@ -65,20 +65,53 @@ class mainTest extends PHPUnit_Framework_TestCase{
 	public function testMain(){
 
 		// トップページの出力コードを検査
-		$indexHtml = $this->helper->passthru( [
-			'php',
+		$indexHtml = $this->helper->php( [
 			__DIR__.'/testdata/standard/.px_execute.php' ,
 			'-u', 'Mozilla/0.5',
 			'/index.html' ,
 		] );
 		// var_dump($indexHtml);
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
 
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,noindex" />' ) );
+
+		$indexHtml = $this->helper->php( [
+			__DIR__.'/testdata/standard/.px_execute.php' ,
+			'-u', 'Mozilla/0.5',
+			'/test/all_null.html' ,
+		] );
+		// var_dump($indexHtml);
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
+
+
+		$indexHtml = $this->helper->php( [
+			__DIR__.'/testdata/standard/.px_execute.php' ,
+			'-u', 'Mozilla/0.5',
+			'/test/all_yes.html' ,
+		] );
+		// var_dump($indexHtml);
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,index,archive" />' ) );
+
+
+		$indexHtml = $this->helper->php( [
+			__DIR__.'/testdata/standard/.px_execute.php' ,
+			'-u', 'Mozilla/0.5',
+			'/test/all_no.html' ,
+		] );
+		// var_dump($indexHtml);
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex,noarchive" />' ) );
+
+
+		$indexHtml = $this->helper->php( [
+			__DIR__.'/testdata/standard/.px_execute.php' ,
+			'-u', 'Mozilla/0.5',
+			'/test/nofollow_noindex.html' ,
+		] );
+		// var_dump($indexHtml);
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex" />' ) );
 
 
 		// 後始末
-		$output = $this->helper->passthru( [
-			'php',
+		$output = $this->helper->php( [
 			__DIR__.'/testdata/standard/.px_execute.php' ,
 			'/?PX=clearcache' ,
 		] );

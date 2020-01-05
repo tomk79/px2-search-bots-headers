@@ -36,9 +36,9 @@ class apply{
 	 */
 	public function append($src){
 		$cond = array();
-		$cond['follow'] = true;
-		$cond['index'] = false;
-		$cond['archive'] = null;
+		$cond['follow'] = $this->px->site()->get_current_page_info('robots:follow');
+		$cond['index'] = $this->px->site()->get_current_page_info('robots:index');
+		$cond['archive'] = $this->px->site()->get_current_page_info('robots:archive');
 
 		$meta = $this->meta_tag($cond);
 
@@ -92,6 +92,9 @@ class apply{
 	 */
 	private function meta_tag( $cond = null ){
 		$meta_content = $this->meta_content($cond);
+		if( !strlen($meta_content) ){
+			return '';
+		}
 		$meta = '<meta name=”robots” content="'.htmlspecialchars($meta_content).'" />';
 		return $meta;
 	}

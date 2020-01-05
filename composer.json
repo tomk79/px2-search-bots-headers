@@ -35,5 +35,13 @@
             "php/main.php",
             "php/utils.php"
         ]
+    },
+    "extra": {
+        "px2package": {
+            "name": "px2-search-bots-headers",
+            "type": "project",
+            "path": "tests/testdata/standard/.px_execute.php",
+            "path_homedir": "tests/testdata/standard/px-files/"
+        }
     }
 }

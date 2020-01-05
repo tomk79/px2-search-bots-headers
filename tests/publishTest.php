@@ -21,8 +21,7 @@ class publishTest extends PHPUnit_Framework_TestCase{
 
 
 		// Pickles 2 実行
-		$output = $this->helper->passthru( [
-			'php',
+		$output = $this->helper->php( [
 			__DIR__.'/testdata/standard/.px_execute.php' ,
 			'/?PX=publish.run' ,
 		] );
@@ -30,17 +29,31 @@ class publishTest extends PHPUnit_Framework_TestCase{
 		// トップページのソースコードを検査
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/index.html' );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,noindex" />' ) );
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
 
 
-		// コンテンツテンプレートサンプルのソースコードを検査
-		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/include_test/virtual/directory/index.html' );
-		$this->assertTrue( 1 < strpos( $indexHtml, 'IncTest 2 | px2-search-bots-headers' ) );
+		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/all_null.html' );
+		// var_dump($indexHtml);
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
+
+
+		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/all_yes.html' );
+		// var_dump($indexHtml);
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,index,archive" />' ) );
+
+
+		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/all_no.html' );
+		// var_dump($indexHtml);
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex,noarchive" />' ) );
+
+
+		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/nofollow_noindex.html' );
+		// var_dump($indexHtml);
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex" />' ) );
 
 
 		// 後始末
-		$output = $this->helper->passthru( [
-			'php',
+		$output = $this->helper->php( [
 			__DIR__.'/testdata/standard/.px_execute.php' ,
 			'/?PX=clearcache' ,
 		] );
