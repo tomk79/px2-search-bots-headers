@@ -3,21 +3,20 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>IncTest | px2-search-bots-headers</title>
- 	</head>
+ 	<meta name=”robots” content="noindex, nofollow" /></head>
 	<body>
 
 
 <!-- echo を実行するテスト -->
-<p><?php echo "echo in theme"; ?></p>
+<p><!--?php echo "echo in theme"; ?--></p>
 
 
 <!-- include するテスト -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/common/includes/test.inc'); ?>
+<!--?php include($_SERVER['DOCUMENT_ROOT'].'/common/includes/test.inc'); ?-->
 
 
 <div class="contents">
-<div class="cont_include_1"><?php include($_SERVER['DOCUMENT_ROOT'].'/common/includes/test.inc'); ?></div>
-<div class="cont_include_2"><?php include('../common/includes/test.inc'); ?></div>
+<p>test</p>
 </div>
 	</body>
 </html>

@@ -228,8 +228,9 @@ return call_user_func( function(){
 		)).')' ,
 
 		// px2-search-bots-headers
-		// Pickles 2 に、検索ボット向けのメタ情報を制御する機能を追加します。
-		'tomk79\pickles2\px2_search_bots_headers\main::exec()' ,
+		// 検索ボット向けの制御メタ情報 を head要素内に追加する。
+		'tomk79\pickles2\px2_search_bots_headers\main::append('.json_encode(array(
+		)).')' ,
 
 		// output_encoding, output_eol_coding の設定に従ってエンコード変換する。
 		'picklesFramework2\processors\encodingconverter\encodingconverter::exec' ,
