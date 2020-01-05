@@ -32,7 +32,8 @@
     "autoload": {
         "files": [
             "php/apply.php",
-            "php/main.php"
+            "php/main.php",
+            "php/utils.php"
         ]
     }
 }
