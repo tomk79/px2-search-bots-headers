@@ -30,7 +30,7 @@ class publishTest extends PHPUnit_Framework_TestCase{
 		// トップページのソースコードを検査
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/index.html' );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="noindex, nofollow" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,noindex" />' ) );
 
 
 		// コンテンツテンプレートサンプルのソースコードを検査

@@ -25,18 +25,22 @@ class utils{
 		}
 		if( is_string( $val ) ){
 			$val = strtolower($val);
+			$val = trim($val);
 			switch( $val ){
 				case 'true':
 				case 'yes':
 				case 'on':
 					return true;
+					break;
 				case 'false':
 				case 'no':
 				case 'off':
 					return false;
+					break;
 				case 'null':
 				case '':
 					return null;
+					break;
 			}
 			if( preg_match('/^(?:\-|\+)?[0-9]+(?:\.[0-9]*)?$/', $val) ){
 				$val = intval($val);

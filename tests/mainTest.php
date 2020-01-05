@@ -73,7 +73,7 @@ class mainTest extends PHPUnit_Framework_TestCase{
 		] );
 		// var_dump($indexHtml);
 
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="noindex, nofollow" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,noindex" />' ) );
 
 
 		// 後始末
