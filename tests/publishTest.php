@@ -29,27 +29,27 @@ class publishTest extends PHPUnit_Framework_TestCase{
 		// トップページのソースコードを検査
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/index.html' );
 		// var_dump($indexHtml);
-		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name="robots"' ) );
 
 
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/all_null.html' );
 		// var_dump($indexHtml);
-		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name="robots"' ) );
 
 
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/all_yes.html' );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,index,archive" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name="robots" content="follow,index,archive" />' ) );
 
 
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/all_no.html' );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex,noarchive" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name="robots" content="nofollow,noindex,noarchive" />' ) );
 
 
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/test/nofollow_noindex.html' );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name="robots" content="nofollow,noindex" />' ) );
 
 
 		// 後始末

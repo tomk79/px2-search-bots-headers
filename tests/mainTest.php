@@ -3,6 +3,7 @@
  * Test for px2-search-bots-headers
  */
 
+use tomk79\pickles2\px2_search_bots_headers\main;
 use tomk79\pickles2\px2_search_bots_headers\utils;
 
 class mainTest extends PHPUnit_Framework_TestCase{
@@ -60,9 +61,21 @@ class mainTest extends PHPUnit_Framework_TestCase{
 	}//testUtilsToBoolean()
 
 	/**
-	 * 基本テスト
+	 * メタタグを直接取得するテスト
 	 */
-	public function testMain(){
+	public function testTag(){
+
+		$this->assertSame( main::tag(), '' );
+		$this->assertSame( main::tag(array()), '' );
+		$this->assertSame( main::tag(array('follow'=>'','index'=>'','archive'=>'')), '' );
+		$this->assertSame( main::tag(array('follow'=>'no','index'=>'','archive'=>'')), '<meta name="robots" content="nofollow" />' );
+
+	}//testTag()
+
+	/**
+	 * Pickles 2 プラグイン テスト
+	 */
+	public function testPickles2Plugin(){
 
 		// トップページの出力コードを検査
 		$indexHtml = $this->helper->php( [
@@ -71,7 +84,7 @@ class mainTest extends PHPUnit_Framework_TestCase{
 			'/index.html' ,
 		] );
 		// var_dump($indexHtml);
-		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name="robots"' ) );
 
 
 		$indexHtml = $this->helper->php( [
@@ -80,7 +93,7 @@ class mainTest extends PHPUnit_Framework_TestCase{
 			'/test/all_null.html' ,
 		] );
 		// var_dump($indexHtml);
-		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name=”robots”' ) );
+		$this->assertFalse( 1 < strpos( $indexHtml, '<meta name="robots"' ) );
 
 
 		$indexHtml = $this->helper->php( [
@@ -89,7 +102,7 @@ class mainTest extends PHPUnit_Framework_TestCase{
 			'/test/all_yes.html' ,
 		] );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="follow,index,archive" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name="robots" content="follow,index,archive" />' ) );
 
 
 		$indexHtml = $this->helper->php( [
@@ -98,7 +111,7 @@ class mainTest extends PHPUnit_Framework_TestCase{
 			'/test/all_no.html' ,
 		] );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex,noarchive" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name="robots" content="nofollow,noindex,noarchive" />' ) );
 
 
 		$indexHtml = $this->helper->php( [
@@ -107,7 +120,7 @@ class mainTest extends PHPUnit_Framework_TestCase{
 			'/test/nofollow_noindex.html' ,
 		] );
 		// var_dump($indexHtml);
-		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name=”robots” content="nofollow,noindex" />' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name="robots" content="nofollow,noindex" />' ) );
 
 
 		// 後始末
@@ -116,6 +129,6 @@ class mainTest extends PHPUnit_Framework_TestCase{
 			'/?PX=clearcache' ,
 		] );
 
-	}//testMain()
+	}//testPickles2Plugin()
 
 }
