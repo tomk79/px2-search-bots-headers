@@ -54,9 +54,32 @@ sitemapに追加した拡張列に、各ページの設定を入力します。
 `<meta name="robots" content="follow,noindex" />` のようなコードが出力されます。
 
 
+## その他の使い方
+
+### metaタグを直接取得する
+
+直接タグを取得したい場合は、次の例のように `main::tag()` メソッドから取得できます。
+このとき、 同時に `X-Robots-Tag` ヘッダーが発行されます。
+
+```php
+<html>
+<head>
+<?php
+$tag = \tomk79\pickles2\px2_search_bots_headers\main::tag(array(
+    'follow'=>'no',
+    'index'=>'',
+    'archive'=>'',
+));
+echo $tag;
+?>
+</head>
+</html>
+```
+
+
 ## 更新履歴 - Change log
 
-### tomk79/px2-search-bots-headers 0.1.0 (リリース日未定)
+### tomk79/px2-search-bots-headers v0.1.0 (2020年1月5日)
 
 - Initial Release.
 
