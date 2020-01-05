@@ -1,6 +1,6 @@
 <?php
 /**
- * Test for pickles2\px2-include-php-code
+ * Test for px2-search-bots-headers
  */
 
 class mainTest extends PHPUnit_Framework_TestCase{

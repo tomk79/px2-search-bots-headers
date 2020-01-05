@@ -1,8 +1,8 @@
 <?php
 /**
- * px2-include-php-code
+ * px2-search-bots-headers
  */
-namespace tomk79\pickles2\px2_include_php_code;
+namespace tomk79\pickles2\px2_search_bots_headers;
 
 /**
  * main.php

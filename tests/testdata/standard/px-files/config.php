@@ -13,7 +13,7 @@ return call_user_func( function(){
 	// project
 
 	/** サイト名 */
-	$conf->name = 'px2-include-php-code';
+	$conf->name = 'px2-search-bots-headers';
 	/** コピーライト表記 */
 	$conf->copyright = 'Pickles 2 Project';
 	/** ドメイン(本番環境のドメイン) */
@@ -227,9 +227,9 @@ return call_user_func( function(){
 			) ,
 		)).')' ,
 
-		// px2-include-php-code
-		// Pickles 2 に、パブリッシュ後のコードにPHPを出力できる文法を追加します。
-		'tomk79\pickles2\px2_include_php_code\main::exec()' ,
+		// px2-search-bots-headers
+		// Pickles 2 に、検索ボット向けのメタ情報を制御する機能を追加します。
+		'tomk79\pickles2\px2_search_bots_headers\main::exec()' ,
 
 		// output_encoding, output_eol_coding の設定に従ってエンコード変換する。
 		'picklesFramework2\processors\encodingconverter\encodingconverter::exec' ,

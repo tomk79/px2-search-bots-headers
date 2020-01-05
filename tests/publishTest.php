@@ -1,6 +1,6 @@
 <?php
 /**
- * Test for pickles2\px2-include-php-code
+ * Test for px2-search-bots-headers
  */
 
 class publishTest extends PHPUnit_Framework_TestCase{
@@ -41,7 +41,7 @@ class publishTest extends PHPUnit_Framework_TestCase{
 
 		// コンテンツテンプレートサンプルのソースコードを検査
 		$indexHtml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/include_test/virtual/directory/index.html' );
-		$this->assertTrue( 1 < strpos( $indexHtml, 'IncTest 2 | px2-include-php-code' ) );
+		$this->assertTrue( 1 < strpos( $indexHtml, 'IncTest 2 | px2-search-bots-headers' ) );
 
 
 		// 後始末
